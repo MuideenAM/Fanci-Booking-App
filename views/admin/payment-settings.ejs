@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Payment Settings</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+</head>
+
+<body class="bg-light">
+
+<div class="container mt-5">
+
+    <div class="card shadow">
+
+        <div class="card-header">
+
+            <h2>Payment Settings</h2>
+
+        </div>
+
+        <div class="card-body">
+
+            <form
+                action="/admin/payment-settings"
+                method="POST">
+
+                <div class="mb-3">
+
+                    <label>PayPal Email</label>
+
+                    <input
+                        type="email"
+                        name="paypal"
+                        class="form-control"
+                        value="<%= settings.paypal || '' %>">
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label>Venmo Username</label>
+
+                    <input
+                        type="text"
+                        name="venmo"
+                        class="form-control"
+                        value="<%= settings.venmo || '' %>">
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label>Chime Details</label>
+
+                    <textarea
+                        name="chime"
+                        class="form-control"><%= settings.chime || '' %></textarea>
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label>Zelle Details</label>
+
+                    <textarea
+                        name="zelle"
+                        class="form-control"><%= settings.zelle || '' %></textarea>
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label>Apple Pay Details</label>
+
+                    <textarea
+                        name="applePay"
+                        class="form-control"><%= settings.applePay || '' %></textarea>
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label>Crypto Wallet Details</label>
+
+                    <textarea
+                        name="crypto"
+                        class="form-control"><%= settings.crypto || '' %></textarea>
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label>Gift Card Instructions</label>
+
+                    <textarea
+                        name="giftCard"
+                        class="form-control"><%= settings.giftCard || '' %></textarea>
+
+                </div>
+
+                <button
+                    class="btn btn-primary">
+
+                    Save Settings
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

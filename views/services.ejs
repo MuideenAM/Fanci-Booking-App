@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Our Services</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <style>
+
+        body{
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        .hero-section{
+            background: linear-gradient(
+                rgba(0,0,0,.6),
+                rgba(0,0,0,.6)
+            ),
+            url('https://images.unsplash.com/photo-1544161515-4ab6ce6db874');
+
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .category-banner{
+            background: white;
+            border-left: 6px solid #0d6efd;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 0 15px rgba(0,0,0,.08);
+        }
+
+        .service-card{
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: .3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,.08);
+        }
+
+        .service-card:hover{
+            transform: translateY(-8px);
+            box-shadow: 0 15px 25px rgba(0,0,0,.15);
+        }
+
+        .service-card .card-body{
+            padding: 30px;
+        }
+
+        .price-tag{
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #198754;
+        }
+
+        .duration-badge{
+            background-color: #e9ecef;
+            color: #333;
+            padding: 8px 14px;
+            border-radius: 30px;
+            font-size: .9rem;
+        }
+
+        .book-btn{
+            border-radius: 30px;
+            padding: 10px 25px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="hero-section">
+
+        <h1 class="display-4 fw-bold">
+            Our Services
+        </h1>
+
+        <p class="lead mt-3">
+            Discover wellness treatments designed to
+            relax, rejuvenate and restore your body.
+        </p>
+
+    </div>
+
+    <div class="container">
+
+        <% const categories = [
+            {
+                name: 'Massage',
+                description: 'Professional massage therapies designed to relieve stress, relax muscles and improve wellbeing.'
+            },
+            {
+                name: 'Body Rub',
+                description: 'Luxury body rub sessions that refresh, revitalize and nourish your entire body.'
+            },
+            {
+                name: 'Body Work',
+                description: 'Advanced therapeutic body treatments aimed at restoring mobility and overall wellness.'
+            }
+        ]; %>
+
+        <% categories.forEach(category => { %>
+
+            <section class="mb-5">
+
+                <div class="category-banner">
+
+                    <h2>
+                        <%= category.name %>
+                    </h2>
+
+                    <p class="mb-0 text-muted">
+                        <%= category.description %>
+                    </p>
+
+                </div>
+
+                <div class="row">
+
+                    <% const categoryServices =
+                        services.filter(service =>
+                            service.category === category.name); %>
+
+                    <% if(categoryServices.length === 0){ %>
+
+                        <div class="col-12">
+
+                            <div class="alert alert-info">
+
+                                No services available in this category.
+
+                            </div>
+
+                        </div>
+
+                    <% } %>
+
+                    <% categoryServices.forEach(service => { %>
+
+                        <div class="col-lg-4 col-md-6 mb-4">
+
+                            <div class="card service-card h-100">
+
+                                <div class="card-body d-flex flex-column">
+
+                                    <h4 class="mb-3">
+                                        <%= service.name %>
+                                    </h4>
+
+                                    <p class="text-muted flex-grow-1">
+                                        <%= service.description %>
+                                    </p>
+
+                                    <div class="mb-3">
+
+                                        <span class="duration-badge">
+
+                                            ⏱ <%= service.duration %>
+
+                                        </span>
+
+                                    </div>
+
+                                    <div class="price-tag mb-4">
+
+                                        $<%= service.price %>
+
+                                    </div>
+
+                                    <a href="/book/<%= service.id %>"
+                                       class="btn btn-primary book-btn">
+
+                                        Book Appointment
+
+                                    </a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    <% }) %>
+
+                </div>
+
+            </section>
+
+        <% }) %>
+
+    </div>
+
+</body>
+
+</html>

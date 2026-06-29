@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Manage Bookings</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+</head>
+
+<body class="bg-light">
+
+<div class="container mt-5">
+
+    <div class="d-flex justify-content-between mb-4">
+
+        <h2>Bookings Management</h2>
+
+        <a href="/admin/dashboard"
+           class="btn btn-secondary">
+
+            Dashboard
+
+        </a>
+
+    </div>
+
+    <div class="card shadow">
+
+        <div class="card-body">
+
+            <table class="table table-bordered">
+
+                <thead>
+
+                <tr>
+
+                    <th>Reference</th>
+                    <th>Customer</th>
+                    <th>Service</th>
+                    <th>Date</th>
+                    <th>Payment</th>
+                    <th>Status</th>
+                    <th>Action</th>
+
+                </tr>
+
+                </thead>
+
+                <tbody>
+
+                <% bookings.forEach(booking => { %>
+
+                    <tr>
+
+                        <td>
+                            <%= booking.bookingRef %>
+                        </td>
+
+                        <td>
+
+                            <strong>
+                                <%= booking.customerName %>
+                            </strong>
+
+                            <br>
+
+                            <small>
+                                <%= booking.phone %>
+                            </small>
+
+                            <br>
+
+                            <small>
+                                <%= booking.email %>
+                            </small>
+
+                        </td>
+
+                        <td>
+                            <%= booking.serviceName %>
+                        </td>
+
+                        <td>
+
+                            <%= booking.date %>
+
+                            <br>
+
+                            <small>
+                                <%= booking.time %>
+                            </small>
+
+                        </td>
+
+                        <td>
+                            <%= booking.paymentMethod %>
+                        </td>
+
+                        <td>
+
+                            <% if
+                            (booking.status === 'Pending')
+                            { %>
+
+                                <span class="badge bg-warning">
+                                    Pending
+                                </span>
+
+                            <% } else if
+                            (booking.status ===
+                            'Waiting for Payment')
+                            { %>
+
+                                <span class="badge bg-info">
+                                    Waiting
+                                </span>
+
+                            <% } else if
+                            (booking.status ===
+                            'Confirmed')
+                            { %>
+
+                                <span class="badge bg-success">
+                                    Confirmed
+                                </span>
+
+                            <% } else { %>
+
+                                <span class="badge bg-secondary">
+                                    Completed
+                                </span>
+
+                            <% } %>
+
+                        </td>
+
+                        <td>
+
+                            <form
+                              action="/admin/update-booking-status/<%= booking.id %>"
+                              method="POST">
+
+                                <select
+                                    class="form-select mb-2"
+                                    name="status">
+
+                                    <option>
+                                        Pending
+                                    </option>
+
+                                    <option>
+                                        Waiting for Payment
+                                    </option>
+
+                                    <option>
+                                        Confirmed
+                                    </option>
+
+                                    <option>
+                                        Completed
+                                    </option>
+
+                                </select>
+
+                                <button
+                                   class="btn btn-primary btn-sm w-100">
+
+                                    Update
+
+                                </button>
+
+                            </form>
+
+                        </td>
+
+                    </tr>
+
+                <% }) %>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>s

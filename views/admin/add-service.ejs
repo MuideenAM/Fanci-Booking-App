@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Service</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+
+    <div class="container mt-5">
+
+        <div class="row justify-content-center">
+
+            <div class="col-md-8">
+
+                <div class="card shadow">
+
+                    <div class="card-header text-center">
+                        <h2>Add New Service</h2>
+                    </div>
+
+                    <div class="card-body">
+
+                        <form action="/admin/add-service" method="POST">
+
+                            <div class="mb-3">
+                                <label class="form-label">Service Name</label>
+                                <input
+                                    type="text"
+                                    name="name"
+                                    class="form-control"
+                                    placeholder="Enter service name"
+                                    required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Category</label>
+
+                                <select
+                                    name="category"
+                                    class="form-select"
+                                    required>
+
+                                    <option value="">
+                                        Select Category
+                                    </option>
+
+                                    <option value="Massage">
+                                        Massage
+                                    </option>
+
+                                    <option value="Body Rub">
+                                        Body Rub
+                                    </option>
+
+                                    <option value="Body Work">
+                                        Body Work
+                                    </option>
+
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Description</label>
+                                <textarea
+                                    name="description"
+                                    rows="4"
+                                    class="form-control"
+                                    placeholder="Enter service description"></textarea>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Price ($)</label>
+                                <input
+                                    type="number"
+                                    name="price"
+                                    class="form-control"
+                                    placeholder="Enter price"
+                                    required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Duration</label>
+                                <input
+                                    type="text"
+                                    name="duration"
+                                    class="form-control"
+                                    placeholder="e.g. 45 Minutes"
+                                    required>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary w-100">
+                                Save Service
+                            </button>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
