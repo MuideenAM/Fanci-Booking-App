@@ -4,6 +4,8 @@ const path = require("path");
 
 const app = express();
 
+app.set('trust proxy', 1);
+
 require("dotenv").config();
 
 app.use(session({
@@ -18,7 +20,7 @@ app.use(session({
         // Only use HTTPS cookies in production
         secure: process.env.NODE_ENV === "production",
 
-        sameSite: "strict"
+        sameSite: "lax"
     }
 }));
 

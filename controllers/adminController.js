@@ -80,6 +80,9 @@ exports.login = async (req, res) => {
             email: adminUser.email
         };
 
+        console.log("Session after login:");
+        console.log(req.session);
+
         res.redirect("/admin/dashboard");
 
     } catch (error) {
