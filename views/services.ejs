@@ -85,6 +85,33 @@
             padding: 10px 25px;
         }
 
+        .hero-section{
+            background: linear-gradient(
+                rgba(80, 20, 90, .65),
+                rgba(80, 20, 90, .65)
+            ),
+            url('https://images.unsplash.com/photo-1544161515-4ab6ce6db874');
+
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 130px 20px;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .hero-section h1{
+            text-shadow: 2px 2px 8px rgba(0,0,0,.4);
+        }
+
+        .hero-section .btn{
+            border-radius: 30px;
+        }
+
+        .card h1{
+            color: #6f42c1 !important;
+        }
+
     </style>
 
 </head>
@@ -93,18 +120,118 @@
 
     <div class="hero-section">
 
-        <h1 class="display-4 fw-bold">
-            Our Services
+        <h1 class="display-3 fw-bold">
+            FanciElizabeth Massage Spa
         </h1>
 
-        <p class="lead mt-3">
-            Discover wellness treatments designed to
-            relax, rejuvenate and restore your body.
+        <h3 class="mt-3">
+            Healing Touch. Natural Care. Total Wellness.
+        </h3>
+
+        <p class="lead mt-4">
+            Discover luxurious massage and wellness
+            treatments designed to relax, rejuvenate,
+            and restore your body, mind, and soul.
         </p>
+
+        <a href="#services"
+        class="btn btn-light btn-lg mt-3 px-5">
+
+            Explore Services
+
+        </a>
 
     </div>
 
-    <div class="container">
+    <section class="container mb-5">
+
+        <div class="row text-center g-4">
+
+            <div class="col-6 col-md-3">
+
+                <div class="card border-0 shadow-sm p-4 h-100">
+
+                    <h1 class="text-primary fw-bold">
+
+                        10+
+
+                    </h1>
+
+                    <p class="mb-0">
+
+                        Years of Healing
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-6 col-md-3">
+
+                <div class="card border-0 shadow-sm p-4 h-100">
+
+                    <h1 class="text-primary fw-bold">
+
+                        2.5k
+
+                    </h1>
+
+                    <p class="mb-0">
+
+                        Happy Clients
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-6 col-md-3">
+
+                <div class="card border-0 shadow-sm p-4 h-100">
+
+                    <h1 class="text-primary fw-bold">
+
+                        15+
+
+                    </h1>
+
+                    <p class="mb-0">
+
+                        Certified Experts
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-6 col-md-3">
+
+                <div class="card border-0 shadow-sm p-4 h-100">
+
+                    <h1 class="text-primary fw-bold">
+
+                        100%
+
+                    </h1>
+
+                    <p class="mb-0">
+
+                        Natural Oils
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <div class="container" id="services">
 
         <% const categories = [
             {
